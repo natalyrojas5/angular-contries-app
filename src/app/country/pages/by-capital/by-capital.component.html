@@ -1,0 +1,27 @@
+<div class="animate__animated animate__fadeIn">
+  <h2>By capital</h2>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <app-country-input
+        (onEnter)="searchTerm($event)"
+        placeholder="Search capital ..."
+      ></app-country-input>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div
+  class="alert alert-danger animate__animated animate__fadeIn"
+  *ngIf="hasErr"
+>
+  <p class="m-0">Nothing was found with the term {{ term }}</p>
+</div>
+
+<div *ngIf="countries.length > 0" class="row animate__animated animate__fadeIn">
+  <div class="col">
+    <app-country-table [countries]="countries"></app-country-table>
+  </div>
+</div>
